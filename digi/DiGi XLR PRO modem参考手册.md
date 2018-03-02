@@ -51,13 +51,15 @@ DiGi XLR PRO 模块、电源、Mini USB线、天线
 * 使用网线，连接XLR PRO与PC，或者XLR PRO与路由器，并且使用mini USB线连接XLR PRO与PC。
 * 打开XCTU即可观察到XLR PRO分配到的IP地址（__MY__）。
 * 在PC端查看PC端的IP地址，并将此IP地址设置到 __DX__ 寄存器里面去。__注意：设置完成之后，需要掉电重启，在重启之前需要拔掉mini USB线，只留下网线。__
-* 打开TCP/UDP网络调试助手，根据IP地址（__MY__）创建连接，端口为（__C0__）。如图：
-![创建连接](./picture/IP_socket_connect.png)
+* 打开TCP/UDP网络调试助手，根据IP地址（__MY__）创建连接，端口为（__C0__）。如图：    
+![create_connect](./picture/IP_socket_connect.png)
 * 编辑信息并发送。
 
 #### 4.网络桥接模式
-* 网络桥接模式，就是IP socket模式的拓展应用，可以用于代替网线，也就是说，一个XLR PRO连接路由器，另一个XLR PRO连接PC，然后PC可以通过XLR PRO来上网。
-* 另外，XLR PRO可以实现一对多通信，那么，多台PC可以通过XLR PRO来实现上网。
+* 网络桥接模式，就是IP socket模式的拓展应用，可以用于代替网线，也就是说，一个XLR PRO连接路由器或者交换机，另一个XLR PRO连接PC，然后PC可以通过XLR PRO来上网。
+* 另外，XLR PRO可以实现一对多通信，那么，多台PC（最多16）可以通过XLR PRO来实现上网。
+* 需要设置的参数有 __ID__（网络ID），__PL__（发射功率），__RR__（单一传输的重试次数），__MT__（广播的重复发送次数），__BE__（使能网络桥接），__BA__（目标地址，也就是数传的MAC地址）。
+* __注意：在射频波特率小于141kbps的时候（* BR *小于3），完整的以太网数据包是不能正常工作的。如果是一对一通信，则需要设置BA为指定的地址。__
 
 ## 配置方法
 
